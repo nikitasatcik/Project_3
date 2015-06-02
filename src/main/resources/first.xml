@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="first.xsd">
+    <person modelName="a001">
+        <firstName>Vasya</firstName>
+        <secondName>Ivanov</secondName>
+        <placeOfBirth>
+            <city>Kiev</city>
+            <country>Ukraine</country>
+        </placeOfBirth>
+    </person>
+
+    <person modelName="a002">
+        <firstName>Petya</firstName>
+        <secondName>Sidorov</secondName>
+        <placeOfBirth>
+            <city>Gmerenka</city>
+            <country>Ukraine</country>
+        </placeOfBirth>
+    </person>
+
+</root>

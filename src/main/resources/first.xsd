@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:element name="root" type="rootType"/>
+
+    <xs:complexType name="rootType">
+        <xs:sequence>
+            <xs:element name="person" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="firstName" type="xs:string"/>
+                        <xs:element name="secondName" type="xs:string"/>
+                        <xs:element name="placeOfBirth" type="TypeOfBirth"/>
+
+                    </xs:sequence>
+                    <xs:attribute name="modelName" type="xs:ID" use="required"/>
+                </xs:complexType>
+
+            </xs:element>
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:complexType name="TypeOfBirth">
+        <xs:sequence>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="country" type="TypeOfCountry"/>
+
+        </xs:sequence>
+
+    </xs:complexType>
+    <xs:simpleType name="TypeOfCountry">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ukraine"/>
+            <xs:enumeration value="USA"/>
+
+        </xs:restriction>
+
+    </xs:simpleType>
+</xs:schema>

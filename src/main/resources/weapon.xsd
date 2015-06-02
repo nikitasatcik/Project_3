@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="weapon" type="weaponType"/>
+
+    <xs:complexType name="rangeType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:integer" name="maxRange" use="optional"/>
+                <xs:attribute type="xs:integer" name="deadRange" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="gunType">
+        <xs:sequence>
+            <xs:element type="modelType" name="model"/>
+            <xs:element name="handy">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="origin">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Russia"/>
+                        <xs:enumeration value="USSR"/>
+                        <xs:enumeration value="USA"/>
+                        <xs:enumeration value="Turkey"/>
+                        <xs:enumeration value="Italy"/>
+
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="ttcType" name="ttc"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="weaponType">
+        <xs:sequence>
+            <xs:element type="gunType" name="gun" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="modelType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="serialModel" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="ttcType">
+        <xs:sequence>
+            <xs:element type="rangeType" name="range"/>
+            <xs:element type="xs:boolean" name="magazine"/>
+            <xs:element type="xs:boolean" name="optic">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean">
+                        <xs:enumeration value="true"/>
+                        <xs:enumeration value="false"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
