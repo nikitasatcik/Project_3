@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           xmlns:myspace="http://www.weapon.com/Weapon">
+
+    <xs:import schemaLocation="namespace.xsd" namespace="http://www.weapon.com/Weapon"/>
+
+    <xs:element name="weapon" type="weaponType"/>
+
+    <xs:complexType name="weaponType">
+        <xs:sequence>
+            <xs:element type="gunType" name="gun" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="gunType">
+        <xs:sequence>
+            <xs:element type="xs:ID" name="id"/>
+            <xs:element type="modelType" name="model"/>
+            <xs:element name="handy">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="origin" type="myspace:TypeOfCountry">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Russia"/>
+                        <xs:enumeration value="USSR"/>
+                        <xs:enumeration value="USA"/>
+                        <xs:enumeration value="Turkey"/>
+                        <xs:enumeration value="Italy"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <xs:element type="ttcType" name="ttc"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="modelType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="serialModel" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="ttcType">
+        <xs:sequence>
+            <xs:element type="rangeType" name="range"/>
+            <xs:element name="magazine">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="true"/>
+                        <xs:enumeration value="false"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="optic">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="true"/>
+                        <xs:enumeration value="false"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="rangeType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:integer" name="maxRange" use="required"/>
+                <xs:attribute type="xs:integer" name="deadRange" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>
