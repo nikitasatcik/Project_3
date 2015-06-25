@@ -20,6 +20,7 @@ public class StAXReader {
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLStreamReader reader = factory.createXMLStreamReader(in);
 
+
         int eventType;
 
         while (reader.hasNext()) {
@@ -28,10 +29,11 @@ public class StAXReader {
             if (eventType == XMLEvent.START_ELEMENT) {
                 String elementName = reader.getName().toString();
 
+
                 switch (elementName) {
                     case XMLTags.GUN:
                         weapon = new Weapon();
-                        weapon.setModelName((reader.getAttributeValue("", XMLTags.MODEL_NAME)));
+                        weapon.setModelName((reader.getAttributeValue("http://www.weapon.com/Weapon", XMLTags.MODEL_NAME)));
                         weaponList.add(weapon);
                         break;
 
@@ -47,7 +49,7 @@ public class StAXReader {
 
                     case XMLTags.MODEL:
                         assert weapon != null;
-                        weapon.setSerialModel(reader.getAttributeValue("", XMLTags.SERIAL_MODEL));
+                        weapon.setSerialModel(reader.getAttributeValue("http://www.weapon.com/Weapon", XMLTags.SERIAL_MODEL));
                         break;
 
                     case XMLTags.MAGAZINE:
@@ -62,8 +64,8 @@ public class StAXReader {
 
                     case XMLTags.RANGE:
                         assert weapon != null;
-                        weapon.ttc.setMaxRange(Integer.parseInt(reader.getAttributeValue("", XMLTags.MAX_RANGE)));
-                        weapon.ttc.setDeadRange(Integer.parseInt(reader.getAttributeValue("", XMLTags.DEAD_RANGE)));
+                        weapon.ttc.setMaxRange(Integer.parseInt(reader.getAttributeValue("http://www.weapon.com/Weapon", XMLTags.MAX_RANGE)));
+                        weapon.ttc.setDeadRange(Integer.parseInt(reader.getAttributeValue("http://www.weapon.com/Weapon", XMLTags.DEAD_RANGE)));
                         break;
 
                     default:
