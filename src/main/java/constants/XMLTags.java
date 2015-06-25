@@ -19,7 +19,10 @@ public final class XMLTags {
             DEAD_RANGE = "deadRange",
             MAGAZINE = "magazine",
             OPTIC = "optic",
-            XML_PATH = "C:\\Users\\Nikita\\IdeaProjects\\Project_3\\src\\main\\resources\\weapon.xml";
+            XML_PATH = "D:\\Dropbox\\JavaProjects\\Project_3\\src\\main\\resources\\weapon1.xml",
+            XSD_PATH = "D:\\Dropbox\\JavaProjects\\Project_3\\src\\main\\resources\\weapon1.xsd",
+            XSL_PATH = "D:\\Dropbox\\JavaProjects\\Project_3\\src\\main\\resources\\weapon.xsl",
+            HTML_PATH = "D:\\Dropbox\\JavaProjects\\Project_3\\src\\main\\resources\\weapon.html";
 
     private XMLTags() {
     }
