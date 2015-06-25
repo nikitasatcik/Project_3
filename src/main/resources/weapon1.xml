@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weapon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.weapon.com/Weapon"
+        xsi:schemaLocation="http://www.weapon.com/Weapon weapon1.xsd">
+
+    <gun name="Assault">
+        <model serialModel="AK-47"/>
+        <handy>2</handy>
+        <id>NN23</id>
+        <origin>Russia</origin>
+        <ttc>
+            <range maxRange="1500" deadRange="800"/>
+            <magazine>true</magazine>
+            <optic>true</optic>
+        </ttc>
+    </gun>
+
+    <gun name="Handgun">
+        <model serialModel="TT-30"/>
+        <handy>1</handy>
+        <origin>USSR</origin>
+        <ttc>
+            <range maxRange="1650" deadRange="50"/>
+            <magazine>true</magazine>
+            <optic>false</optic>
+        </ttc>
+    </gun>
+
+    <gun name="ShotGun">
+        <model serialModel="Remington 870"/>
+        <handy>2</handy>
+        <origin>USA</origin>
+        <ttc>
+            <range maxRange="150" deadRange="50"/>
+            <magazine>false</magazine>
+            <optic>false</optic>
+        </ttc>
+    </gun>
+
+    <gun name="Rifle">
+        <model serialModel="Hatsan Slug Barrel SVP"/>
+        <handy>2</handy>
+        <origin>Turkey</origin>
+        <ttc>
+            <range maxRange="300" deadRange="150"/>
+            <magazine>false</magazine>
+            <optic>false</optic>
+        </ttc>
+    </gun>
+
+    <gun name="Rifle">
+        <model serialModel="Armed Gladiator "/>
+        <handy>2</handy>
+        <origin>Italy</origin>
+        <ttc>
+            <range maxRange="350" deadRange="180"/>
+            <magazine>false</magazine>
+            <optic>false</optic>
+        </ttc>
+    </gun>
+
+    <gun name="Assault">
+        <model serialModel="M16"/>
+        <handy>2</handy>
+        <origin>USA</origin>
+        <ttc>
+            <range maxRange="800" deadRange="450"/>
+            <magazine>true</magazine>
+            <optic>true</optic>
+        </ttc>
+    </gun>
+</weapon>
