@@ -15,7 +15,6 @@ import java.util.List;
 public class SAXHandler extends DefaultHandler {
     private List<Weapon> weaponList;
     private Weapon weapon;
-    private String currentElement = "";
     private StringBuilder currentText;
 
     public SAXHandler() {
@@ -41,9 +40,8 @@ public class SAXHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        currentElement = qName;
 
-        switch (currentElement) {
+        switch (qName) {
             case XMLTags.WEAPON:
                 break;
 
@@ -75,14 +73,14 @@ public class SAXHandler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
 
-        if (currentElement.equals(XMLTags.WEAPON) || currentElement.equals(XMLTags.GUN) || currentElement.equals(XMLTags.TTC) ||
-                currentElement.equals(XMLTags.MODEL) || currentElement.equals(XMLTags.RANGE)) {
+        if (qName.equals(XMLTags.WEAPON) || qName.equals(XMLTags.GUN) || qName.equals(XMLTags.TTC) ||
+                qName.equals(XMLTags.MODEL) || qName.equals(XMLTags.RANGE)) {
             return;
         }
 
         String content = currentText.toString();
 
-        switch (currentElement) {
+        switch (qName) {
 
             case XMLTags.ORIGIN:
                 weapon.setOrigin(content);
@@ -103,7 +101,6 @@ public class SAXHandler extends DefaultHandler {
             default:
                 break;
         }
-        currentElement = "";
     }
 
     @Override
